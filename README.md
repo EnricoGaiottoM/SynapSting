@@ -16,7 +16,6 @@ comportamento, e testar essas previsões em moscas reais. Projeto para a FEBRACE
 
 Simulações com poucas tentativas; a rodada final (`configs/final.json`) será pré-registrada antes dos experimentos.
 
-## Como rodar
 
 ```bash
 pip install -e ".[dev]"
@@ -24,12 +23,8 @@ python scripts/baixar_dados.py --all
 python -m synapsting.check && python -m pytest
 ```
 
-Passo a passo completo, do zero: [docs/GUIA.md](docs/GUIA.md).
 
-## Estrutura
-
-| Pasta | O que tem |
-| --- | --- |
+| Pasta |
 | `synapsting/` | O modelo: conectoma, simulador, os dois mecanismos do inseticida e a análise das curvas |
 | `scripts/` | Os comandos do projeto (tabela abaixo) |
 | `configs/` | As grades de simulação (`teste.json`, `final.json`) e os dados de contato dos resumos |
@@ -38,9 +33,7 @@ Passo a passo completo, do zero: [docs/GUIA.md](docs/GUIA.md).
 | `laboratorio/` | PER-bot (Arduino e vídeo) e estatística dos experimentos com moscas |
 | `docs/` | Guia, pré-registro, diário e os resumos em PDF |
 
-## Comandos
-
-| Para | Comando |
+| Para |
 | --- | --- |
 | Baixar e conferir os dados do conectoma | `python scripts/baixar_dados.py --all` |
 | Validar contra o modelo original | `python scripts/validar.py` |
@@ -48,10 +41,8 @@ Passo a passo completo, do zero: [docs/GUIA.md](docs/GUIA.md).
 | Triagem de neurônios-gargalo | `python scripts/gargalos.py --top 40 --trials 10` |
 | Ajustar curvas e gerar figuras | `python scripts/analisar.py resultados/final` |
 | Gerar os resumos em PDF | `python scripts/resumos.py` |
-| Criar tarefas e marcos no GitHub | `bash scripts/criar_tarefas.sh` |
 
-## Créditos e transparência
+## Créditos
 
 Modelo e dados: Shiu et al. (2024), consórcio FlyWire (Dorkenwald et al. 2024; Schlegel et al. 2024; Eckstein et al. 2024).
-A versão inicial do código foi escrita com assistência de IA (Claude); o aluno revisa, executa, valida e estende cada parte.
 Licença MIT.
