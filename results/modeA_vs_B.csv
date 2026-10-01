@@ -1,0 +1,20 @@
+circuito,condicao,media_hz,dp,n
+Alimentação 100 Hz,controle,63.8,2.2,4
+Alimentação 100 Hz,"Modo A α=0,1",36.8,2.2,4
+Alimentação 100 Hz,"Modo A α=0,15",16.5,3.1,4
+Alimentação 100 Hz,"Modo A α=0,2",2.0,0.8,4
+Alimentação 100 Hz,"Modo B ρ=0,5",35.0,1.4,2
+Alimentação 100 Hz,Modo B ρ=1,14.0,2.8,2
+Alimentação 200 Hz,controle,91.5,2.5,4
+Alimentação 200 Hz,"Modo A α=0,1",75.8,3.6,4
+Alimentação 200 Hz,"Modo A α=0,15",63.8,2.5,4
+Alimentação 200 Hz,"Modo A α=0,2",45.2,2.1,4
+Alimentação 200 Hz,"Modo B ρ=0,5",86.0,11.3,2
+Alimentação 200 Hz,Modo B ρ=1,86.0,0.0,2
+Água 200 Hz,controle,30.0,5.9,4
+Água 200 Hz,"Modo A α=0,15",0.2,0.5,4
+Água 200 Hz,Modo B ρ=1,1.0,1.4,2
+Limpeza 200 Hz,controle,26.7,1.5,3
+Limpeza 200 Hz,"Modo A α=0,1",14.3,1.5,3
+Limpeza 200 Hz,"Modo A α=0,2",1.0,0.0,3
+Limpeza 200 Hz,Modo B ρ=1,0.0,0.0,2

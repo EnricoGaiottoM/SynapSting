@@ -1,0 +1,213 @@
+{
+ "output": "final",
+ "version": "783",
+ "trials": 30,
+ "t_run_ms": 1000,
+ "_nota": "Grade do pré-registro. Não altere depois de publicar o pré-registro; crie um novo arquivo e explique a mudança.",
+ "experiments": [
+  {
+   "name": "feeding",
+   "stim": "sugar",
+   "readouts": [
+    "MN9",
+    "MN9pair"
+   ],
+   "rates": [
+    0,
+    25,
+    50,
+    75,
+    100,
+    150,
+    200
+   ],
+   "conditions": [
+    [
+     "A",
+     0
+    ],
+    [
+     "A",
+     0.05
+    ],
+    [
+     "A",
+     0.1
+    ],
+    [
+     "A",
+     0.15
+    ],
+    [
+     "A",
+     0.2
+    ],
+    [
+     "A",
+     0.25
+    ],
+    [
+     "A",
+     0.3
+    ],
+    [
+     "A",
+     0.4
+    ],
+    [
+     "B",
+     0.25
+    ],
+    [
+     "B",
+     0.5
+    ],
+    [
+     "B",
+     1.0
+    ],
+    [
+     "B",
+     1.5
+    ],
+    [
+     "B",
+     2.0
+    ]
+   ]
+  },
+  {
+   "name": "water",
+   "stim": "water",
+   "readouts": [
+    "MN9",
+    "MN9pair"
+   ],
+   "rates": [
+    0,
+    50,
+    100,
+    150,
+    200,
+    250
+   ],
+   "conditions": [
+    [
+     "A",
+     0
+    ],
+    [
+     "A",
+     0.1
+    ],
+    [
+     "A",
+     0.2
+    ],
+    [
+     "B",
+     0.5
+    ],
+    [
+     "B",
+     1.0
+    ],
+    [
+     "B",
+     2.0
+    ]
+   ]
+  },
+  {
+   "name": "grooming",
+   "stim": "jon_ce",
+   "readouts": [
+    "aDN1",
+    "aBN1"
+   ],
+   "rates": [
+    0,
+    50,
+    100,
+    150,
+    200,
+    250
+   ],
+   "conditions": [
+    [
+     "A",
+     0
+    ],
+    [
+     "A",
+     0.05
+    ],
+    [
+     "A",
+     0.1
+    ],
+    [
+     "A",
+     0.15
+    ],
+    [
+     "A",
+     0.2
+    ],
+    [
+     "A",
+     0.3
+    ],
+    [
+     "B",
+     0.5
+    ],
+    [
+     "B",
+     1.0
+    ],
+    [
+     "B",
+     2.0
+    ]
+   ]
+  },
+  {
+   "name": "shuffle",
+   "stim": "sugar",
+   "readouts": [
+    "MN9"
+   ],
+   "rates": [
+    100,
+    200
+   ],
+   "conditions": [
+    [
+     "A",
+     0
+    ],
+    [
+     "A",
+     0.1
+    ],
+    [
+     "A",
+     0.2
+    ],
+    [
+     "A",
+     0.3
+    ]
+   ],
+   "shuffle_seeds": [
+    0,
+    1,
+    2
+   ],
+   "trials": 10
+  }
+ ],
+ "trials_B": 10,
+ "_nota_B": "Modo B é ~20x mais lento (atividade espontânea); 10 tentativas. Otimizar o simulador para o regime denso é uma boa contribuição do aluno."
+}

@@ -1,0 +1,15 @@
+# dados grandes: baixe com scripts/setup_data.py
+data/*.parquet
+data/*.tsv
+data/Completeness_*.csv
+*.part
+# ambiente
+__pycache__/
+*.egg-info/
+.venv/
+.ipynb_checkpoints/
+# cegamento: NUNCA publicar a chave
+chave_SECRETA.csv
+# vídeos brutos do PER-bot (grandes)
+*.mp4
+*.avi

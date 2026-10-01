@@ -1,0 +1,9 @@
+# núcleo (simulação e análise)
+numpy>=1.25
+scipy>=1.10
+pandas>=2.0
+pyarrow>=14
+matplotlib>=3.7
+statsmodels>=0.14
+pytest>=7
+# opcionais: pip install -e ".[validacao,perbot,docs]"

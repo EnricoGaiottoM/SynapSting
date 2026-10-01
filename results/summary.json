@@ -1,0 +1,259 @@
+{
+ "fits_modeA": [
+  {
+   "alpha": 0.0,
+   "s50": 74.52,
+   "s50_lo": 70.93,
+   "s50_hi": 77.98,
+   "rmax": 88.2,
+   "n": 3.92,
+   "frac_finite": 1.0
+  },
+  {
+   "alpha": 0.05,
+   "s50": 83.9,
+   "s50_lo": 79.88,
+   "s50_hi": 94.07,
+   "rmax": 80.05,
+   "n": 4.8,
+   "frac_finite": 1.0
+  },
+  {
+   "alpha": 0.1,
+   "s50": 105.05,
+   "s50_lo": 99.86,
+   "s50_hi": 111.32,
+   "rmax": 77.42,
+   "n": 4.72,
+   "frac_finite": 1.0
+  },
+  {
+   "alpha": 0.15,
+   "s50": 136.61,
+   "s50_lo": 124.23,
+   "s50_hi": 155.96,
+   "rmax": 75.29,
+   "n": 4.42,
+   "frac_finite": 1.0
+  },
+  {
+   "alpha": 0.2,
+   "s50": 146.5,
+   "s50_lo": 135.2,
+   "s50_hi": 166.18,
+   "rmax": 48.79,
+   "n": 8.18,
+   "frac_finite": 1.0
+  },
+  {
+   "alpha": 0.3,
+   "s50": Infinity,
+   "s50_lo": 152.05,
+   "s50_hi": 1946.88,
+   "rmax": NaN,
+   "n": NaN,
+   "frac_finite": 0.17
+  },
+  {
+   "alpha": 0.4,
+   "s50": Infinity,
+   "s50_lo": NaN,
+   "s50_hi": NaN,
+   "rmax": NaN,
+   "n": NaN,
+   "frac_finite": 0.0
+  }
+ ],
+ "modeA_vs_B": [
+  {
+   "circuito": "Alimentação 100 Hz",
+   "condicao": "controle",
+   "media_hz": 63.8,
+   "dp": 2.2,
+   "n": 4
+  },
+  {
+   "circuito": "Alimentação 100 Hz",
+   "condicao": "Modo A α=0,1",
+   "media_hz": 36.8,
+   "dp": 2.2,
+   "n": 4
+  },
+  {
+   "circuito": "Alimentação 100 Hz",
+   "condicao": "Modo A α=0,15",
+   "media_hz": 16.5,
+   "dp": 3.1,
+   "n": 4
+  },
+  {
+   "circuito": "Alimentação 100 Hz",
+   "condicao": "Modo A α=0,2",
+   "media_hz": 2.0,
+   "dp": 0.8,
+   "n": 4
+  },
+  {
+   "circuito": "Alimentação 100 Hz",
+   "condicao": "Modo B ρ=0,5",
+   "media_hz": 35.0,
+   "dp": 1.4,
+   "n": 2
+  },
+  {
+   "circuito": "Alimentação 100 Hz",
+   "condicao": "Modo B ρ=1",
+   "media_hz": 14.0,
+   "dp": 2.8,
+   "n": 2
+  },
+  {
+   "circuito": "Alimentação 200 Hz",
+   "condicao": "controle",
+   "media_hz": 91.5,
+   "dp": 2.5,
+   "n": 4
+  },
+  {
+   "circuito": "Alimentação 200 Hz",
+   "condicao": "Modo A α=0,1",
+   "media_hz": 75.8,
+   "dp": 3.6,
+   "n": 4
+  },
+  {
+   "circuito": "Alimentação 200 Hz",
+   "condicao": "Modo A α=0,15",
+   "media_hz": 63.8,
+   "dp": 2.5,
+   "n": 4
+  },
+  {
+   "circuito": "Alimentação 200 Hz",
+   "condicao": "Modo A α=0,2",
+   "media_hz": 45.2,
+   "dp": 2.1,
+   "n": 4
+  },
+  {
+   "circuito": "Alimentação 200 Hz",
+   "condicao": "Modo B ρ=0,5",
+   "media_hz": 86.0,
+   "dp": 11.3,
+   "n": 2
+  },
+  {
+   "circuito": "Alimentação 200 Hz",
+   "condicao": "Modo B ρ=1",
+   "media_hz": 86.0,
+   "dp": 0.0,
+   "n": 2
+  },
+  {
+   "circuito": "Água 200 Hz",
+   "condicao": "controle",
+   "media_hz": 30.0,
+   "dp": 5.9,
+   "n": 4
+  },
+  {
+   "circuito": "Água 200 Hz",
+   "condicao": "Modo A α=0,15",
+   "media_hz": 0.2,
+   "dp": 0.5,
+   "n": 4
+  },
+  {
+   "circuito": "Água 200 Hz",
+   "condicao": "Modo B ρ=1",
+   "media_hz": 1.0,
+   "dp": 1.4,
+   "n": 2
+  },
+  {
+   "circuito": "Limpeza 200 Hz",
+   "condicao": "controle",
+   "media_hz": 26.7,
+   "dp": 1.5,
+   "n": 3
+  },
+  {
+   "circuito": "Limpeza 200 Hz",
+   "condicao": "Modo A α=0,1",
+   "media_hz": 14.3,
+   "dp": 1.5,
+   "n": 3
+  },
+  {
+   "circuito": "Limpeza 200 Hz",
+   "condicao": "Modo A α=0,2",
+   "media_hz": 1.0,
+   "dp": 0.0,
+   "n": 3
+  },
+  {
+   "circuito": "Limpeza 200 Hz",
+   "condicao": "Modo B ρ=1",
+   "media_hz": 0.0,
+   "dp": 0.0,
+   "n": 2
+  }
+ ],
+ "relative_pct": {
+  "Modo A α=0,1": {
+   "Alimentação 100 Hz": 58.0,
+   "Alimentação 200 Hz": 83.0,
+   "Limpeza 200 Hz": 54.0,
+   "Água 200 Hz": NaN
+  },
+  "Modo A α=0,15": {
+   "Alimentação 100 Hz": 26.0,
+   "Alimentação 200 Hz": 70.0,
+   "Limpeza 200 Hz": NaN,
+   "Água 200 Hz": 1.0
+  },
+  "Modo A α=0,2": {
+   "Alimentação 100 Hz": 3.0,
+   "Alimentação 200 Hz": 49.0,
+   "Limpeza 200 Hz": 4.0,
+   "Água 200 Hz": NaN
+  },
+  "Modo B ρ=0,5": {
+   "Alimentação 100 Hz": 55.0,
+   "Alimentação 200 Hz": 94.0,
+   "Limpeza 200 Hz": NaN,
+   "Água 200 Hz": NaN
+  },
+  "Modo B ρ=1": {
+   "Alimentação 100 Hz": 22.0,
+   "Alimentação 200 Hz": 94.0,
+   "Limpeza 200 Hz": 0.0,
+   "Água 200 Hz": 3.0
+  },
+  "controle": {
+   "Alimentação 100 Hz": 100.0,
+   "Alimentação 200 Hz": 100.0,
+   "Limpeza 200 Hz": 100.0,
+   "Água 200 Hz": 100.0
+  }
+ },
+ "shuffle": {
+  "MN9_hz": {
+   "100.0": 0.0,
+   "200.0": 0.0
+  },
+  "n_recruited_5hz": {
+   "100.0": 31.0,
+   "200.0": 80.5
+  }
+ },
+ "real_recruit": {
+  "0.0": 0.0,
+  "25.0": 13.5,
+  "50.0": 65.0,
+  "75.0": 208.2,
+  "100.0": 233.8,
+  "150.0": 280.5,
+  "200.0": 298.2
+ }
+}

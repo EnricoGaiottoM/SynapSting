@@ -1,0 +1,5 @@
+experiment,mode,level,stim_hz,trial,n_spontaneous,seed,MN9_hz,MN9pair_hz,n_recruited_5hz,total_spikes,rep,t_run_ms
+shuffle,A,0.0,100.0,0,0,3042378583,0.0,0.0,31,2401,0,1000.0
+shuffle,A,0.0,100.0,1,0,3042378583,0.0,0.0,31,2475,0,1000.0
+shuffle,A,0.0,200.0,0,0,407648761,0.0,0.0,83,5675,0,1000.0
+shuffle,A,0.0,200.0,1,0,407648761,0.0,0.0,78,5704,0,1000.0
