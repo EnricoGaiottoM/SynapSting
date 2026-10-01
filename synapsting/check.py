@@ -18,7 +18,7 @@ def main():
     need = ["Connectivity_783.parquet", "Completeness_783.csv", "flywire_annotations_783.tsv"]
     miss = [f for f in need if not (data / f).exists()]
     if miss:
-        sys.exit(f"Faltam dados: {miss}. Rode: python scripts/setup_data.py")
+        sys.exit(f"Faltam dados: {miss}. Rode: python scripts/baixar_dados.py")
     from synapsting.connectome import load_connectome
     from synapsting.simulator import simulate, LIFParams
     from synapsting import neurons as nr

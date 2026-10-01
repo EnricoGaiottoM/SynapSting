@@ -6,9 +6,9 @@ linha de base antes dele. O instante do estímulo vem do LED de sincronização 
 ou de uma lista de tempos (v1, estímulo manual).
 
 Uso:
-  python per_score.py video.mp4 --rois rois.json --out scores.csv            # v2 (LED)
-  python per_score.py video.mp4 --rois rois.json --onsets 12.5,40.2 --out s.csv  # v1
-  python per_score.py video.mp4 --pick-rois rois.json   # desenha as ROIs com o mouse
+  python pontuar_video.py video.mp4 --rois rois.json --out scores.csv            # v2 (LED)
+  python pontuar_video.py video.mp4 --rois rois.json --onsets 12.5,40.2 --out s.csv  # v1
+  python pontuar_video.py video.mp4 --pick-rois rois.json   # desenha as ROIs com o mouse
 rois.json: {"led": [x,y,w,h], "flies": {"f1": [x,y,w,h], ...}}
 """
 import argparse, json

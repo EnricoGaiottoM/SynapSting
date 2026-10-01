@@ -6,7 +6,7 @@
  "_nota": "Grade do pré-registro. Não altere depois de publicar o pré-registro; crie um novo arquivo e explique a mudança.",
  "experiments": [
   {
-   "name": "feeding",
+   "name": "alimentacao",
    "stim": "sugar",
    "readouts": [
     "MN9",
@@ -77,7 +77,7 @@
    ]
   },
   {
-   "name": "water",
+   "name": "agua",
    "stim": "water",
    "readouts": [
     "MN9",
@@ -119,7 +119,7 @@
    ]
   },
   {
-   "name": "grooming",
+   "name": "limpeza",
    "stim": "jon_ce",
    "readouts": [
     "aDN1",
@@ -173,7 +173,7 @@
    ]
   },
   {
-   "name": "shuffle",
+   "name": "embaralhado",
    "stim": "sugar",
    "readouts": [
     "MN9"

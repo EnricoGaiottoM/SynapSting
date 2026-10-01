@@ -1,9 +1,45 @@
-"""Gera os anexos dos e-mails a partir de docs/contato.json:
-  docs/resumo_1pagina.pdf           -> para laboratórios (pedido de apoio)
-  docs/resumo_revisor_2paginas.pdf  -> para quem vai revisar o modelo
-Uso: python docs/make_figure_resumo.py && python docs/make_summaries.py
+"""Gera os anexos dos e-mails para os laboratórios.
+
+Uso: python scripts/resumos.py   (depois de: python scripts/analisar.py)
+Lê configs/contato.json e resultados/preliminar/; gera
+  docs/resumo_1pagina.pdf           -> pedido de apoio aos laboratórios
+  docs/resumo_tecnico_2paginas.pdf  -> para quem vai revisar o modelo
+No Codespace, antes da primeira vez: sudo apt-get install -y fonts-dejavu-core fonts-dejavu-extra
 """
-import json
+import json, os
+D = "resultados/preliminar"
+FIGR = os.path.join(D, "figuras", "fig_resumo.png")
+import numpy as np, pandas as pd, matplotlib
+matplotlib.use("Agg"); import matplotlib.pyplot as plt
+plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 8})
+F = pd.read_csv(f"{D}/alimentacao.csv"); F["level"] = F.level.astype(float)
+C = pd.read_csv(f"{D}/modoA_vs_B.csv")
+fig, ax = plt.subplots(1, 2, figsize=(7.2, 2.5), gridspec_kw={"width_ratios": [1.1, 1]})
+cols = {0.0: "#1b1b1b", 0.1: "#2a6f97", 0.2: "#61a5c2", 0.3: "#c9c9c9"}
+for a, c in cols.items():
+    m = F[(F["mode"] == "A") & (F.level == a)].groupby("stim_hz").MN9_hz.agg(["mean", "std"])
+    ax[0].errorbar(m.index, m["mean"], m["std"], color=c, marker="o", ms=3, lw=1.4, capsize=2,
+                   label="controle" if a == 0 else f"{int(a*100)}% de bloqueio")
+ax[0].set(xlabel="Estímulo de açúcar (Hz nos neurônios gustativos)", ylabel="Neurônio motor MN9 (Hz)")
+ax[0].set_title("A. Bloqueio colinérgico desloca a curva", loc="left", fontsize=8.5, fontweight="bold")
+ax[0].legend(frameon=False, fontsize=7); ax[0].spines[["top", "right"]].set_visible(False)
+sel = [("Alimentação 100 Hz", "Alimentação\n(açúcar moderado)"), ("Alimentação 200 Hz", "Alimentação\n(açúcar forte)"),
+       ("Limpeza 200 Hz", "Limpeza\ndas antenas")]
+conds = [("Modo A α=0,1", "Bloqueio 10%", "#2a6f97"), ("Modo A α=0,2", "Bloqueio 20%", "#61a5c2"), ("Modo B ρ=1", "Agonista tônico", "#d17a22")]
+x = np.arange(len(sel)); w = 0.26
+for i, (k, lab, col) in enumerate(conds):
+    vals = []
+    for circ, _ in sel:
+        ctrl = C[(C.circuito == circ) & (C.condicao == "controle")].media_hz.values[0]
+        v = C[(C.circuito == circ) & (C.condicao == k)].media_hz.values
+        vals.append(100 * v[0] / ctrl if len(v) else np.nan)
+    ax[1].bar(x + (i - 1) * w, vals, w, color=col, label=lab)
+ax[1].axhline(100, color="k", lw=0.7, ls="--"); ax[1].set_xticks(x, [s[1] for s in sel])
+ax[1].set_ylabel("% da resposta do controle"); ax[1].set_ylim(0, 128); ax[1].set_yticks([0, 25, 50, 75, 100])
+ax[1].set_title("B. Cada mecanismo deixa uma assinatura", loc="left", fontsize=8.5, fontweight="bold")
+ax[1].legend(frameon=False, fontsize=6.8, loc="upper center", ncol=3, columnspacing=0.8, handlelength=1.2); ax[1].spines[["top", "right"]].set_visible(False)
+plt.tight_layout(); plt.savefig(FIGR, dpi=300); plt.close()
+
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.units import cm
 from reportlab.lib import colors
@@ -18,7 +54,7 @@ pdfmetrics.registerFont(TTFont("DV", D + "DejaVuSans.ttf"))
 pdfmetrics.registerFont(TTFont("DVB", D + "DejaVuSans-Bold.ttf"))
 pdfmetrics.registerFont(TTFont("DVI", D + "DejaVuSans-Oblique.ttf"))
 pdfmetrics.registerFontFamily("DV", normal="DV", bold="DVB", italic="DVI", boldItalic="DVB")
-C = json.load(open("docs/contato.json"))
+C = json.load(open("configs/contato.json"))
 AZUL, CINZA, LARANJA = colors.HexColor("#1d3557"), colors.HexColor("#5c677d"), colors.HexColor("#d17a22")
 
 def S(name, size=8.6, lead=11.2, font="DV", color=colors.black, **kw):
@@ -75,7 +111,7 @@ def one_pager(path="docs/resumo_1pagina.pdf"):
         "preserva. É um teste simples para decidir entre eles em moscas reais.",
         "A limpeza das antenas parece mais vulnerável que a alimentação; no cérebro com fiação embaralhada, o circuito não responde.",
     ])
-    s += [Spacer(1, 3), Image("figures/fig_resumo.png", width=17.8*cm, height=17.8*cm*2.5/7.2),
+    s += [Spacer(1, 3), Image(FIGR, width=17.8*cm, height=17.8*cm*2.5/7.2),
           Paragraph("Resultados preliminares (3 a 5 simulações por condição; serão refeitos com 30 antes do pré-registro). "
                     "Barras de erro: desvio-padrão entre simulações.", CAP)]
     ask = [Paragraph("<b>Como um laboratório pode ajudar</b> (qualquer um destes itens já ajuda muito)", B)] + bullets([
@@ -101,7 +137,7 @@ def one_pager(path="docs/resumo_1pagina.pdf"):
     doc.build(s)
 
 # ------------------------------------------------------------------ 2 páginas (revisor)
-def reviewer(path="docs/resumo_revisor_2paginas.pdf"):
+def reviewer(path="docs/resumo_tecnico_2paginas.pdf"):
     doc = SimpleDocTemplate(path, pagesize=A4, leftMargin=1.6*cm, rightMargin=1.6*cm, topMargin=1.3*cm,
                             bottomMargin=1.2*cm, title="SynapSting — resumo técnico", author=C["aluno"])
     s = []
@@ -144,7 +180,7 @@ def reviewer(path="docs/resumo_revisor_2paginas.pdf"):
         "para alimentação e água; aDN1 para limpeza):", B2), Spacer(1, 2), t, Spacer(1, 2),
         Paragraph("3 a 5 tentativas de 1 s por condição (Modo B: 2 de 0,5 s). Conectoma embaralhado: MN9 = 0 Hz e 31–81 neurônios "
                   "recrutados, contra 234–298 no real. Maior queda ao silenciar um único neurônio colinérgico: 21% (CB0393).", CAP),
-        Spacer(1, 3), Image("figures/fig_resumo.png", width=17.8*cm, height=17.8*cm*2.5/7.2),
+        Spacer(1, 3), Image(FIGR, width=17.8*cm, height=17.8*cm*2.5/7.2),
         PageBreak(), Paragraph("4. O que me surpreendeu", H), Paragraph(
         "Esperava que o agonismo tônico facilitasse respostas (por exemplo, PER à água). O modelo prevê o contrário: "
         "a resposta à água cai para 3% e a limpeza é abolida, enquanto a alimentação com açúcar forte é preservada. "
@@ -179,5 +215,5 @@ def reviewer(path="docs/resumo_revisor_2paginas.pdf"):
 
 one_pager(); reviewer()
 from pypdf import PdfReader
-for p in ["docs/resumo_1pagina.pdf", "docs/resumo_revisor_2paginas.pdf"]:
+for p in ["docs/resumo_1pagina.pdf", "docs/resumo_tecnico_2paginas.pdf"]:
     print(p, len(PdfReader(p).pages), "página(s)")

@@ -6,7 +6,7 @@ Entrada (formato longo): id_mosca, grupo, sacarose_mM, resposta (0/1)
 2) Modelo com efeito da mosca: GEE binomial agrupado por mosca (robusto; em R, o
    equivalente é glmer(resposta ~ log10(sac) * grupo + (1|id_mosca), binomial) [lme4]).
 3) Compara com o registro de previsões (razão EC50 tratado / EC50 veículo).
-Uso: python analyze_per.py dados.csv   |   python analyze_per.py --demo  (dados SINTÉTICOS de teste)
+Uso: python analisar_moscas.py dados.csv   |   python analisar_moscas.py --demo  (dados SINTÉTICOS de teste)
 """
 import sys, numpy as np, pandas as pd, statsmodels.api as sm, statsmodels.formula.api as smf
 

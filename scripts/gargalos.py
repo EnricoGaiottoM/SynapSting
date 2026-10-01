@@ -1,6 +1,6 @@
 """Triagem de gargalos: bloqueia a saída de UM neurônio colinérgico por vez
 (os mais ativos durante o estímulo de açúcar) e mede a queda do MN9.
-Uso: PYTHONPATH=. python scripts/screen_bottlenecks.py --top 15 --trials 3
+Uso: python scripts/gargalos.py --top 40 --trials 10
 """
 import argparse, numpy as np, pandas as pd
 from synapsting.connectome import load_connectome
@@ -8,6 +8,7 @@ from synapsting.simulator import simulate
 from synapsting import neurons as nr
 ap = argparse.ArgumentParser(); ap.add_argument("--top", type=int, default=40)
 ap.add_argument("--trials", type=int, default=4); ap.add_argument("--rate", type=float, default=100)
+ap.add_argument("--saida", default="final")
 a = ap.parse_args()
 con = load_connectome("data", "783")
 ann = pd.read_csv("data/flywire_annotations_783.tsv", sep="\t", usecols=["root_id", "cell_type", "super_class"], low_memory=False).set_index("root_id")
@@ -22,5 +23,6 @@ for j, i in enumerate(cand):
     fid = int(con.ids[i]); ct = ann.cell_type.get(fid, "")
     rows.append(dict(flywire_id=fid, cell_type=ct if isinstance(ct, str) else "", base_rate_hz=round(rate[i], 1),
                      MN9_hz=m, drop_pct=round(100 * (1 - m / base[:, mn9].mean()), 1)))
-    pd.DataFrame(rows).to_csv("results/bottleneck.csv", index=False)
+    out = __import__("pathlib").Path("resultados") / a.saida; out.mkdir(parents=True, exist_ok=True)
+    pd.DataFrame(rows).to_csv(out / "gargalos.csv", index=False)
 print(pd.DataFrame(rows).sort_values("drop_pct", ascending=False).to_string(index=False))

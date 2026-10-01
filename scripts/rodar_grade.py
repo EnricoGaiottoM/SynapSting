@@ -2,11 +2,11 @@
 com retomada automática.
 
 Uso:
-  python scripts/run_grid.py configs/grid_teste.json              # teste rápido (~2 min)
-  python scripts/run_grid.py configs/grid_final.json --jobs 4     # grade do pré-registro
+  python scripts/rodar_grade.py configs/teste.json              # teste rápido (~2 min)
+  python scripts/rodar_grade.py configs/final.json --jobs 4     # grade do pré-registro
 
 Cada "tarefa" é uma combinação (experimento, modo, nível, estímulo, repetição) com N
-tentativas. Os resultados vão para results/<saida>/<experimento>.csv. Se o programa for
+tentativas. Os resultados vão para resultados/<saida>/<experimento>.csv. Se o programa for
 interrompido, rode de novo: as tarefas já salvas são puladas.
 
 Memória: cada processo carrega o conectoma (~1,5 GB). Use --jobs <= RAM(GB) / 2.
@@ -96,7 +96,7 @@ def main():
     ap.add_argument("config"); ap.add_argument("--jobs", type=int, default=1)
     a = ap.parse_args()
     cfg = json.loads(Path(a.config).read_text())
-    out = Path("results") / cfg["output"]; out.mkdir(parents=True, exist_ok=True)
+    out = Path("resultados") / cfg["output"]; out.mkdir(parents=True, exist_ok=True)
     (out / "config_usada.json").write_text(json.dumps(cfg, indent=1, ensure_ascii=False))
     tasks = build_tasks(cfg); done = done_keys(out)
     todo = [t for t in tasks if (t["experiment"], t["mode"], t["level"], t["stim_hz"], t["rep"]) not in done]

@@ -13,7 +13,7 @@ Por que não usar o Brian2 direto? Porque, em cada passo, só uns poucos
 milhares dos ~139 mil neurônios estão fora do repouso. Este código só
 atualiza esse "conjunto ativo", e roda várias tentativas (trials) ao mesmo
 tempo. Num notebook comum fica várias vezes mais rápido que o Brian2 em modo
-NumPy, e a equivalência é conferida em scripts/01_validate.py.
+NumPy, e a equivalência é conferida em scripts/validar.py.
 
 Duas extensões usadas pelo projeto:
   - weight_scale: fator multiplicativo por aresta (Modo A, bloqueio colinérgico)
@@ -142,7 +142,7 @@ def simulate(con: Connectome, stim, rate_hz: float, n_trials: int = 10,
                 pos = np.repeat(starts - excl, lens) + np.arange(tot)
                 tgt = indices[pos].astype(np.int64) + np.repeat(trial_off, lens)
                 wv = w_eff[pos]
-                # Semântica do Brian2 (conferida em scripts/01_validate.py):
+                # Semântica do Brian2 (conferida em scripts/validar.py):
                 # entrada que chega durante o refratário do alvo é descartada.
                 ok = ref_until[tgt] <= t
                 tgt, wv = tgt[ok], wv[ok]

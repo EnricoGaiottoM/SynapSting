@@ -18,10 +18,10 @@
 
 ## 2. Desenho experimental
 - Grupos: veículo + 3 concentrações (definidas no piloto de sobrevivência, mortalidade < 10% em 24 h).
-- n: ≥ 30 moscas por grupo (justificar com a simulação de poder em `fly_stats/analyze_per.py`).
+- n: ≥ 30 moscas por grupo (justificar com a simulação de poder em `laboratorio/estatistica/analisar_moscas.py`).
 - Sacarose: 7 concentrações em série crescente, água entre elas; controle positivo no fim.
 - Exclusões (definidas agora): mosca que não responde à sacarose mais alta; mosca morta ou solta.
-- Cegamento: `fly_stats/randomize_blind.py`; a chave fica com o orientador.
+- Cegamento: `laboratorio/estatistica/cegamento.py`; a chave fica com o orientador.
 
 ## 3. Análise (definida agora)
 - Primária: EC50 por grupo com IC 95% por bootstrap de moscas; razão EC50 tratado/veículo.

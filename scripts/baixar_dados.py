@@ -1,9 +1,9 @@
 """Baixa os dados do conectoma em versões FIXAS e confere a integridade (SHA-256).
 
 Uso:
-  python scripts/setup_data.py            # baixa o que falta (v783 + anotações)
-  python scripts/setup_data.py --all      # inclui a v630 e o arquivo de validação
-  python scripts/setup_data.py --verify   # só confere os arquivos já baixados
+  python scripts/baixar_dados.py            # baixa o que falta (v783 + anotações)
+  python scripts/baixar_dados.py --all      # inclui a v630 e o arquivo de validação
+  python scripts/baixar_dados.py --verify   # só confere os arquivos já baixados
 
 Por que versões fixas: o resultado científico só é reproduzível se todos usarem
 exatamente os mesmos arquivos. Os links apontam para commits específicos.

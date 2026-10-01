@@ -20,5 +20,8 @@ docs = ["reportlab>=4.0", "pypdf>=4.0"]
 [tool.setuptools]
 packages = ["synapsting"]
 
+[tool.setuptools.package-data]
+synapsting = ["neuron_ids.json"]
+
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["testes"]

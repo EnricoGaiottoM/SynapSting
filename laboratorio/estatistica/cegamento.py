@@ -1,6 +1,6 @@
 """Cegamento: gera códigos de frascos e ordem de teste sorteada.
 A CHAVE (chave_SECRETA.csv) fica com outra pessoa (orientador) até o fim da análise.
-Uso: python randomize_blind.py --groups veiculo,baixa,media,alta --flies 30 --seed <número sorteado no dia>
+Uso: python cegamento.py --groups veiculo,baixa,media,alta --flies 30 --seed <número sorteado no dia>
 """
 import argparse, secrets, numpy as np, pandas as pd
 ap = argparse.ArgumentParser(); ap.add_argument("--groups", default="veiculo,baixa,media,alta")

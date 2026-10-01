@@ -16,7 +16,8 @@ ADN1 = 720575940616185531
 ABN1 = 720575940630907434
 
 
-def load_sets(path="data/neuron_ids_630.json"):
+def load_sets(path=None):
+    path = path or Path(__file__).with_name("neuron_ids.json")
     d = json.loads(Path(path).read_text())
     s = d["sets_630"]
     return {
